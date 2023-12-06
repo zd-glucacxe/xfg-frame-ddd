@@ -34,6 +34,13 @@
         <relativePath/>
     </parent>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -47,7 +54,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.34</version>
+                <version>8.0.23</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -171,40 +178,43 @@
                 <profileActive>prod</profileActive>
             </properties>
             <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.codehaus.mojo</groupId>
-                                <artifactId>extra-enforcer-rules</artifactId>
-                                <version>1.4</version>
-                            </dependency>
-                        </dependencies>
-                        <executions>
-                            <execution>
-                                <id>enforce-banned-dependencies-app</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>enforce</goal>
-                                </goals>
-                                <configuration>
-                                    <rules>
-                                        <bannedDependencies>
-                                            <searchTransitive>true</searchTransitive>
-                                            <excludes>
-                                                <exclude>*:*:[,0.0.1)</exclude>
-                                            </excludes>
-                                        </bannedDependencies>
-                                    </rules>
-                                    <fail>true</fail>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--&lt;!&ndash;                        <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <artifactId>maven-enforcer-plugin</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <dependencies>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <dependency>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <groupId>org.codehaus.mojo</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <artifactId>extra-enforcer-rules</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <version>1.0-beta-4</version>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </dependency>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </dependencies>&ndash;&gt;-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>enforce-banned-dependencies-app</id>-->
+<!--                                <phase>install</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>enforce</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <rules>-->
+<!--                                        <bannedDependencies>-->
+<!--                                            <searchTransitive>true</searchTransitive>-->
+<!--                                            <excludes>-->
+<!--                                                <exclude>*:*:[,0.0.1)</exclude>-->
+<!--                                            </excludes>-->
+<!--                                        </bannedDependencies>-->
+<!--                                    </rules>-->
+<!--                                    <fail>true</fail>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
             </build>
         </profile>
     </profiles>
+
+
 
 </project>

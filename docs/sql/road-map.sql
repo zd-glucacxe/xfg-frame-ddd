@@ -14,6 +14,10 @@
  Date: 24/06/2023 09:01:16
 */
 
+CREATE DATABASE IF NOT EXISTS road_map;
+
+use road_map;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
